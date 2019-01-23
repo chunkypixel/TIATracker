@@ -163,7 +163,7 @@ TITLE_LOOP
  rem update display
  drawscreen
 
- rem player music (do after drawscreen)
+ rem play music (do after drawscreen)
  gosub tiatrackerplaytrack
  
  goto TITLE_LOOP
