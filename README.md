@@ -39,14 +39,14 @@ end
 
 ```sh
  rem initialise tiatracker
- gosub tiatrackerinitmusic
+ gosub tiatrackerinit
 ```
 
 5. In your screen loop, after the **drawscreen** call add the following:
 
 ```sh
  rem play track
- gosub tiatrackerplaytrack
+ gosub tiatrackerplay
 ```
 
 ### TIATracker

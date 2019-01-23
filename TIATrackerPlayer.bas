@@ -112,7 +112,7 @@ MAIN_LOOP
 TITLE_SETUP
 
  rem initialise tiatracker
- gosub tiatrackerinitmusic
+ gosub tiatrackerinit
 
 TITLE_LOOP
 
@@ -164,7 +164,7 @@ TITLE_LOOP
  drawscreen
 
  rem play music (do after drawscreen)
- gosub tiatrackerplaytrack
+ gosub tiatrackerplay
  
  goto TITLE_LOOP
 

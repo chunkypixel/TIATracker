@@ -11,14 +11,14 @@
 ; =====================================================================
 ; Initialise
 ; =====================================================================
-.tiatrackerinitmusic
+.tiatrackerinit
         include "tiatracker/track/track_init.asm"
         RETURN
 
 ; =====================================================================
 ; Player
 ; =====================================================================
-.tiatrackerplaytrack
+.tiatrackerplay
         include "tiatracker/tiatracker_player.asm"
         RETURN
 
