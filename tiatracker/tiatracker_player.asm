@@ -95,7 +95,9 @@ tt_PlayerStart:
 ; ---------------------------------------------------------------------
 ; Music player entry. Call once per frame.
 ; ---------------------------------------------------------------------
-tt_Player SUBROUTINE    
+; NOTE: this is casuing compile issues in bB but appears 
+;       to cause no issues removing it
+;tt_Player SUBROUTINE    
         ; ==================== Sequencer ====================
         ; Decrease speed timer
         dec tt_timer

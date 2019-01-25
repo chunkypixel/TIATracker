@@ -56,3 +56,16 @@ end
 2. Select **File > Export track data to dasm...**  from the menu. On the **Save As** dialog locate your **tiatracker/track** folder in your batari Basic game folder, enter a filename of 'track' and click the **Save** button to export your music.
 
 3. In file **tiatracker/track/track_variables.asm** remove the **Permanent** and **Temporary** variables from the file (otherwise you will receive a compilation error). *Note: This will need to be done each time you export your data.*
+
+
+# Change Log
+
+The following enhancements and changes have been made to the batari Basic TIATracker module:
+
+### 1.0 - 20190123
+
+* Initial release
+
+### 1.1 - 20190125
+
+* Fixed in issue where the **tiatracker source include** could not be inserted anywhere except at the end of the code (or bank 6 for DPC+) due to **Unresolved Symbol List** compilation errors in batari Basic (via dasm).

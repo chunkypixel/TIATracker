@@ -109,6 +109,14 @@ MAIN_LOOP
  rem *****************************************************
  temp1 = temp1
 
+ rem include the tiatracker source
+ rem v1.1 fix
+ rem previously unable to insert code here (or anywhere 
+ rem where a label followed)
+ asm
+    include "tiatracker/tiatracker.asm"
+end
+
 TITLE_SETUP
 
  rem initialise tiatracker
@@ -167,8 +175,3 @@ TITLE_LOOP
  gosub tiatrackerplay
  
  goto TITLE_LOOP
-
- rem include the tiatracker source
- asm
-    include "tiatracker/tiatracker.asm"
-end
