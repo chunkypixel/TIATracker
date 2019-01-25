@@ -15,11 +15,6 @@
 ; See the License for the specific language governing permissions and
 ; limitations under the License.
 
-; Song author: Bomb the bass / covered by Glafouk
-; Song name: Miniblast
-
-; @com.wudsn.ide.asm.hardware=ATARI2600
-
 ; =====================================================================
 ; TIATracker Player
 ; =====================================================================
