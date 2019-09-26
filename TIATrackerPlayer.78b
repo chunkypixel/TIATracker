@@ -1,0 +1,106 @@
+ rem =============================================================================
+ rem TIATracker Player
+ rem This is an example of how to include TIATracker into your 7800Basic game
+ rem v1.2 26/09/2019 by Matthew Smith
+ rem
+ rem Instructions:
+ rem - Create your music and select File > Export track data to dasm...' from
+ rem   the menu. On the 'Save As' dialog locate your 'tiatracker/track' folder, 
+ rem   enter a filename of 'track' and click the 'Save' button to export your 
+ rem   music.
+ rem 
+ rem - Copy the variables from file tiatracker_batari_variables.bas
+ rem   into your source. If these clash with existing variables change
+ rem   their reference to suit.
+ rem
+ rem - In file 'track/track_variables.asm' remove the Permanent and Temporary 
+ rem   variables from the file (otherwise you will receive a compilation error)
+ rem ============================================================================
+
+ set doublewide off
+ set tv ntsc
+ displaymode 160A
+ set zoneheight 8
+
+ rem =====================================================================
+ rem TIATracker Variables
+ rem These variables need to be included at the top of your game
+ rem If these clash with existing variables change their reference
+ rem Copied from tiatracker_variables.bas
+ rem =====================================================================
+ dim tt_timer = a                   ; current music timer value
+ dim tt_cur_pat_index_c0 = b        ; current pattern index into tt_SequenceTable
+ dim tt_cur_pat_index_c1 = c
+ dim tt_cur_note_index_c0 = d       ; note index into current pattern
+ dim tt_cur_note_index_c1 = e
+ dim tt_envelope_index_c0 = f       ; index into ADSR envelope
+ dim tt_envelope_index_c1 = g
+ dim tt_cur_ins_c0 = h              ; current instrument
+ dim tt_cur_ins_c1 = i
+ dim tt_ptr = j.k
+
+ rem vars
+ dim value = var0
+
+ rem images
+ incgraphic gfx/font.png 160A
+
+ rem palette
+ P0C1 = $0f
+ P1C1 = $34
+ P2C1 = $a8
+
+ rem set the background color
+ BACKGRND=$00
+
+ rem font
+ alphachars '0123456789abcdefghijklmnopqrstuvwxyz>`?!/.,-_()[]&AB '
+ characterset font
+
+setup
+ rem initialise tiatracker
+ gosub tiatrackerinit
+ 
+mainLoop
+ rem prepare
+ clearscreen
+
+ rem about
+ plotchars 'tiatracker' 2 4 1
+ plotchars 'by kylearan' 0 4 2
+
+ plotchars '7800basic module' 2 4 4
+ plotchars 'by matthew smith' 0 4 5
+
+ plotchars 'miniblast (bomb the bass)' 2 4 7
+ plotchars 'by glafouk' 0 4 8
+
+ rem tracker
+ plotchars 'pattern     0   1' 0 4 12
+ value = converttobcd(tt_cur_pat_index_c0) : plotvalue font 1 value 2 48 13
+ value = converttobcd(tt_cur_pat_index_c1) : plotvalue font 1 value 2 64 13
+ plotchars 'note        0   1' 0 4 15
+ value = converttobcd(tt_cur_note_index_c0) : plotvalue font 1 value 2 48 16
+ value = converttobcd(tt_cur_note_index_c1) : plotvalue font 1 value 2 64 16
+ plotchars 'envelope    0   1' 0 4 18
+ value = converttobcd(tt_envelope_index_c0) : plotvalue font 1 value 2 48 19
+ value = converttobcd(tt_envelope_index_c1) : plotvalue font 1 value 2 64 19
+ plotchars 'instrument  0   1' 0 4 21
+ value = converttobcd(tt_cur_ins_c0) : plotvalue font 1 value 2 48 22
+ value = converttobcd(tt_cur_ins_c1) : plotvalue font 1 value 2 64 22
+
+ rem render
+ drawscreen
+ 
+ rem play music (do after drawscreen)
+ BACKGRND = $05
+ gosub tiatrackerplay
+ BACKGRND = $00
+
+ rem continue
+ goto mainLoop
+
+ rem include the tiatracker source
+ asm
+    include "tiatracker/tiatracker.asm"
+end 

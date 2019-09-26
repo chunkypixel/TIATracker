@@ -1,6 +1,6 @@
-# batari Basic TIATracker
+# TIATracker
 
-Welcome to the TIATracker module for batari Basic allowing you to play TIATracker music in your Atari 2600 VCS game.
+Welcome to the TIATracker module for batari Basic and 7800basic allowing you to play TIATracker music in your Atari console games.
 
 ## What is TIATracker
 
@@ -8,23 +8,24 @@ TIATracker is a tool created by [Kylearan](http://atariage.com/forums/user/35905
 
 More information is available on the [AtariAge Forum](http://atariage.com/forums/topic/250014-tiatracker-a-new-sound-routine-and-sequencer-application)
 
-## Example
+## Examples
 
-See **TIATrackerPlayer.bas** for a full example of incorporating your TIATracker music into your batari Basic game.
+For a full example of incorporating your TIATracker music into your source check the following depending on your platform:
+
+* batari Basic - **TIATrackerPlayer.bas**
+* 7800basic - **TIATrackerPlayer.78b** 
 
 ## Known issues
 
-None that I know of.  The example runs at a steady 262 frames (NTSC) in Stella but nothing else is pushing the VCS.
+Currently only one track per game can be added.
 
 ## Instructions
 
-The following outlines how to add the **TIATracker** module to batari Basic and incorporate your music. If you are having issues refer to the example for assistance.
+The following outlines how to add the **TIATracker** module to source and incorporate your music. If you are having issues refer to the example for assistance.
 
-### batari Basic
+1. Copy the **tiatracker** folder into the root of your source folder
 
-1. Copy the **tiatracker** folder into the root of your batari Basic game folder
-
-2. Copy the content of file **tiatracker/tiatracker_batari_variables.bas** into your variable definitions of your batari Basic game.
+2. Copy the content of file **tiatracker/tiatracker_variables.bas** into your variable definitions of your source.
 
 3. Add the following to your source (either at the bottom of your file or bank depending on your requirements):
 
@@ -60,12 +61,17 @@ end
 
 # Change Log
 
-The following enhancements and changes have been made to the batari Basic TIATracker module:
+The following enhancements and changes have been made to the TIATracker module:
 
-### 1.0 - 20190123
+### 1.2 - 20190926
 
-* Initial release
+* Update tracker source to work with 7800basic
+* Added example source for 7800basic
 
 ### 1.1 - 20190125
 
 * Fixed in issue where the **tiatracker source include** could not be inserted anywhere except at the end of the code (or bank 6 for DPC+) due to **Unresolved Symbol List** compilation errors in batari Basic (via dasm).
+
+### 1.0 - 20190123
+
+* Initial release

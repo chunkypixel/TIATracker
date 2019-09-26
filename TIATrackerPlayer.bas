@@ -1,7 +1,7 @@
  rem =============================================================================
  rem TIATracker Player
  rem This is an example of how to include TIATracker into your batari Basic game
- rem v1.0 23/01/2019 by Matthew Smith
+ rem v1.2 26/09/2019 by Matthew Smith
  rem
  rem Instructions:
  rem - Create your music and select File > Export track data to dasm...' from
@@ -34,7 +34,7 @@
  rem TIATracker Variables
  rem These variables need to be included at the top of your game
  rem If these clash with existing variables change their reference
- rem Copied from tiatracker_batari_variables.bas
+ rem Copied from tiatracker_variables.bas
  rem =====================================================================
  dim tt_timer = a                   ; current music timer value
  dim tt_cur_pat_index_c0 = b        ; current pattern index into tt_SequenceTable
@@ -63,11 +63,10 @@ START_RESTART
  rem mute volume of sound channels
  AUDV0 = 0 : AUDV1 = 0
 
- rem clear all normal variables
+ rem clear all variables
  a = 0 : b = 0 : c = 0 : d = 0 : e = 0 : f = 0 : g = 0 : h = 0 : i = 0
  j = 0 : k = 0 : l = 0 : m = 0 : n = 0 : o = 0 : p = 0 : q = 0 : r = 0
- s = 0 : t = 0 : u = 0 : v = 0 : w = 0 : x = 0 : y = 0 
- rem don't reset z = 0
+ s = 0 : t = 0 : u = 0 : v = 0 : w = 0 : x = 0 : y = 0 : z = 0
  var0 = 0 : var1 = 0 : var2 = 0 : var3 = 0 : var4 = 0
  var5 = 0 : var6 = 0 : var7 = 0 : var8 = 0
 
@@ -118,12 +117,10 @@ MAIN_LOOP
 end
 
 TITLE_SETUP
-
  rem initialise tiatracker
  gosub tiatrackerinit
 
 TITLE_LOOP
-
  rem playfield resolution
  DF6FRACINC = 64 ; Background colors.
  DF4FRACINC = 64 ; Playfield colors.
@@ -174,4 +171,5 @@ TITLE_LOOP
  rem play music (do after drawscreen)
  gosub tiatrackerplay
  
+ rem continue
  goto TITLE_LOOP
