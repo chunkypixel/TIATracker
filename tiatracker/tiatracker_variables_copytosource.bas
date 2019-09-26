@@ -1,5 +1,5 @@
 ; =====================================================================
-; TIATracker batari Basic Variables
+; TIATracker batari Basic and 7800basic Variables
 ; These variables need to be included at the top of your game
 ; If these clash with existing variables change their var reference
 ; =====================================================================

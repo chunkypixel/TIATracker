@@ -47,7 +47,7 @@ TT_STARTS_WITH_NOTES    = 1
 
 
 ; =====================================================================
-; For batari Basic these variables need to be removed!!!
+; For batari Basic and 7800basic these variables need to be removed!!!
 ; =====================================================================
 
 ; =====================================================================
