@@ -21,7 +21,7 @@ Currently only one track per game can be added.
 
 ## Instructions
 
-The following outlines how to add the **TIATracker** module to source and incorporate your music. If you are having issues refer to the example for assistance.
+The following outlines how to add the **TIATracker** module to your source and incorporate your music. If you are having issues refer to the example for assistance.
 
 1. Copy the **tiatracker** folder into the root of your source folder
 
